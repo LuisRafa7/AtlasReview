@@ -71,10 +71,18 @@ router.post("/login", async (req, res, next) => {
   }
 });
 
-router.get("auth/logout", (req, res) => {
-  console.log("Logout route accessed");
-  req.logout(); // If you're using passport.js
-  res.redirect("/");
+router.post("/logout/", async (req, res, next) => {
+  try {
+    let destroy = await req.session.destroy((err) => {
+      if (err) {
+        next(err);
+      } else {
+        res.redirect("/auth/login");
+      }
+    });
+  } catch (err) {
+    console.log(err);
+  }
 });
 
 module.exports = router;

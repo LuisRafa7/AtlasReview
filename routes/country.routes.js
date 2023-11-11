@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Country = require("..//models/Country.model");
 const City = require("../models/City.model");
+const uploader = require("../middlewares/cloudinary.config");
 
 router.get("/", async (req, res, next) => {
   const allCountries = await Country.find();
@@ -16,10 +17,11 @@ router.get("/addcountry", async (req, res, next) => {
   }
 });
 
-router.post("/addcountry", async (req, res, next) => {
+router.post("/addcountry", uploader.single("image"), async (req, res, next) => {
   try {
     const data = req.body;
-    const addCity = await Country.create(data);
+    console.log("file is: ", req.file);
+    const addCity = await Country.create({ ...data, image: req.file.path });
     res.redirect("/country/");
   } catch (error) {
     console.log(error);
