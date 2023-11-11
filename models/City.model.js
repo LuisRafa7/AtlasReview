@@ -16,7 +16,6 @@ const citySchema = new Schema(
     country: { type: Schema.Types.ObjectId, ref: "Country" },
     image: {
       type: String,
-      trim: true,
     },
     museum: [{ type: Schema.Types.ObjectId, ref: "Museum" }],
     restaurants: [{ type: Schema.Types.ObjectId, ref: "Restaurant" }],

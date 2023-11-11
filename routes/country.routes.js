@@ -20,7 +20,6 @@ router.get("/addcountry", async (req, res, next) => {
 router.post("/addcountry", uploader.single("image"), async (req, res, next) => {
   try {
     const data = req.body;
-    console.log("file is: ", req.file);
     const addCity = await Country.create({ ...data, image: req.file.path });
     res.redirect("/country/");
   } catch (error) {
@@ -38,16 +37,23 @@ router.get("/:id/editcountry", async (req, res, next) => {
   }
 });
 
-router.post("/:id/editcountry", async (req, res, next) => {
-  try {
-    const id = req.params.id;
-    const data = req.body;
-    const addCity = await Country.findByIdAndUpdate(id, { data });
-    res.redirect("/country/");
-  } catch (error) {
-    console.log(error);
+router.post(
+  "/:id/editcountry",
+  uploader.single("image"),
+  async (req, res, next) => {
+    try {
+      const id = req.params.id;
+      const data = req.body;
+      const addCity = await Country.findByIdAndUpdate(id, {
+        data,
+        image: req.file.path,
+      });
+      res.redirect("/country/");
+    } catch (error) {
+      console.log(error);
+    }
   }
-});
+);
 
 router.get("/:id/addcity", async (req, res, next) => {
   try {
@@ -60,20 +66,28 @@ router.get("/:id/addcity", async (req, res, next) => {
   }
 });
 
-router.post("/:id/addcity", async (req, res, next) => {
-  try {
-    const id = req.params.id;
-    const country = await Country.findById(id);
-    const data = req.body;
-    const addCity = await City.create({ ...data, country: country._id });
-    const update = await Country.findByIdAndUpdate(id, {
-      $push: { cities: addCity._id },
-    });
-    res.redirect("/country/" + id + "/details");
-  } catch (error) {
-    console.log(error);
+router.post(
+  "/:id/addcity",
+  uploader.single("image"),
+  async (req, res, next) => {
+    try {
+      const id = req.params.id;
+      const country = await Country.findById(id);
+      const data = req.body;
+      const addCity = await City.create({
+        ...data,
+        country: country._id,
+        image: req.file.path,
+      });
+      const update = await Country.findByIdAndUpdate(id, {
+        $push: { cities: addCity._id },
+      });
+      res.redirect("/country/" + id + "/details");
+    } catch (error) {
+      console.log(error);
+    }
   }
-});
+);
 
 router.get("/:id/details", async (req, res, next) => {
   try {

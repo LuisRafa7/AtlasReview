@@ -2,8 +2,7 @@ const express = require("express");
 const router = express.Router();
 const bcryptjs = require("bcryptjs");
 const User = require("..//models/User.model");
-const { isLoggedIn, isLoggedOut } = require('../middleware/route-guard.js');
-
+const { isLoggedIn, isLoggedOut } = require("../middlewares/route-guard.js");
 
 router.get("/signup", async (req, res, next) => {
   try {
@@ -29,11 +28,11 @@ router.get("/profile", async (req, res, next) => {
   }
 });
 
-router.get('/profile', isLoggedIn, (req, res) => {
-  res.render('auth/profile', { userInSession: req.session.currentUser });
+router.get("/profile", isLoggedIn, (req, res) => {
+  res.render("auth/profile", { userInSession: req.session.currentUser });
 });
 
-router.get('/signup', isLoggedOut, (req, res) => res.render('auth/signup'));
+router.get("/signup", isLoggedOut, (req, res) => res.render("auth/signup"));
 
 router.post("/signup", async (req, res, next) => {
   try {

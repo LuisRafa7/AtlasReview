@@ -1,6 +1,13 @@
-<form action="/country/{{Country._id}}/addcity" method="POST">
+<form
+  action="/country/{{Country._id}}/addcity"
+  method="POST"
+  enctype="multipart/form-data"
+>
   <label for="name">Name:
     <input type="text" id="name" name="name" />
+  </label>
+  <label for="image">
+    <input type="file" name="image" accept="image/png, image/jpg" />
   </label>
   <label for="location">Location:
     <input type="text" id="name" name="location" />

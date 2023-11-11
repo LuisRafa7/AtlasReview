@@ -5,6 +5,7 @@ const City = require("../models/City.model");
 const Museum = require("../models/Museum.model");
 const Restaurant = require("../models/Restaurants.model");
 const Hotel = require("../models/Hotel.model");
+const uploader = require("../middlewares/cloudinary.config");
 
 router.get("/:id", async (req, res, next) => {
   try {
@@ -102,19 +103,24 @@ router.get("/:id/editcity", async (req, res, next) => {
   }
 });
 
-router.post("/:id/editcity", async (req, res, next) => {
-  try {
-    const id = req.params.id;
-    const data = req.body;
-    const city = await City.findById(id).populate("country");
-    const addCity = await City.findByIdAndUpdate(id, {
-      ...data,
-      country: city.country._id,
-    });
-    res.redirect("/");
-  } catch (error) {
-    console.log(error);
+router.post(
+  "/:id/editcity",
+  uploader.single("image"),
+  async (req, res, next) => {
+    try {
+      const id = req.params.id;
+      const data = req.body;
+      const city = await City.findById(id).populate("country");
+      const addCity = await City.findByIdAndUpdate(id, {
+        ...data,
+        country: city.country._id,
+        image: req.file.path,
+      });
+      res.redirect("/country/" + city.country._id + "/details");
+    } catch (error) {
+      console.log(error);
+    }
   }
-});
+);
 
 module.exports = router;
