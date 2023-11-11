@@ -1,0 +1,25 @@
+<h1>{{City.name}}</h1>
+<h2>Museums</h2>
+{{#each City.museum}}
+  <img src="" alt="" />
+  <h3>{{this.name}}</h3>
+  <a href="/museum/{{this._id}}"><button>See the Museum</button></a>
+{{/each}}
+<a href="/city/{{City._id}}/addmuseum"><button>Add a Musuem</button></a>
+<br />
+<h2>Restaurants</h2>
+{{#each City.restaurants}}
+  <img src="" alt="" />
+  <h3>{{this.name}}</h3>
+  <a href="/restaurant/{{this._id}}"><button>See the Restaurant</button></a>
+{{/each}}
+<a href="/city/{{City._id}}/addrestaurant"><button>Add a Restaurant</button></a>
+<h2>Hotels</h2>
+{{#each City.hotels}}
+  <img src="" alt="" />
+  <h3>{{this.name}}</h3>
+  <a href="/hotel/{{this._id}}"><button>See the Hotel</button></a>
+{{/each}}
+<a href="/city/{{City._id}}/addhotel"><button>Add a Hotel</button></a>
+<br />
+<a href="/country/{{City.country._id}}"><button>Go Back</button></a>

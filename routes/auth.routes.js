@@ -1,0 +1,80 @@
+const express = require("express");
+const router = express.Router();
+const bcryptjs = require("bcryptjs");
+const User = require("..//models/User.model");
+
+router.get("/signup", async (req, res, next) => {
+  try {
+    res.render("auth/signup.hbs");
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+router.get("/login", async (req, res, next) => {
+  try {
+    res.render("auth/login");
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+router.get("/profile", async (req, res, next) => {
+  try {
+    res.render("auth/profile");
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+router.post("/signup", async (req, res, next) => {
+  try {
+    let response = await User.findOne({ username: req.body.username });
+    if (!response) {
+      const salt = await bcryptjs.genSaltSync(12);
+      const hashedPassword = await bcryptjs.hashSync(req.body.password, salt);
+      const newUser = await User.create({
+        ...req.body,
+        password: hashedPassword,
+      });
+      res.redirect("/auth/login");
+    } else {
+      res.render("auth/signup", { errorMessage: "Username already taken" });
+    }
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+router.post("/login", async (req, res, next) => {
+  try {
+    const { email, password } = req.body;
+    let foundUser = await User.findOne({ email: req.body.email });
+
+    if (!foundUser) {
+      res.render("auth/login", { errorMessage: "Please try again" });
+    } else {
+      const doesPasswordMatch = await bcryptjs.compareSync(
+        req.body.password,
+        foundUser.password
+      );
+      if (doesPasswordMatch) {
+        res.render("auth/profile", { user: foundUser });
+      } else {
+        res.render("auth/login", { errorMessage: "Incorrect Details" });
+      }
+    }
+    req.session.currentUser = foundUser;
+    console.log("SESSION =====> ", req.session);
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+router.get("auth/logout", (req, res) => {
+  console.log("Logout route accessed");
+  req.logout(); // If you're using passport.js
+  res.redirect("/");
+});
+
+module.exports = router;

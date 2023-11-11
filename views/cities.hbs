@@ -1,0 +1,8 @@
+<h1>{{Country.name}}</h1>
+{{#each Country.cities}}
+  <h3>{{this.name}}</h3>
+  <img src={{this.image}} alt="" />
+  <a href="/city/{{this._id}}"><button>See {{this.name}}</button></a>
+  <a href="/city/{{this._id}}/editcity"><button>Edit city</button></a>
+{{/each}}
+<a href="/country/{{Country._id}}/addcity"><button>Add City</button></a>

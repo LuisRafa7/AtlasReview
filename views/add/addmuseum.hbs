@@ -1,0 +1,12 @@
+<form action="/city/{{City._id}}/addmuseum" method="POST">
+  <label for="name">Name:
+    <input type="text" id="name" name="name" />
+  </label>
+  <label for="location">Location:
+    <span type="text" id="name" name="name"/>{{City.name}}</span>
+  </label>
+  <label for="bio">Bio:
+    <input type="text" id="bio" name="bio" />
+  </label>
+  <button type="submit">Add the Museum</button>
+</form>

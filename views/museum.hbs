@@ -1,0 +1,10 @@
+<h1>Museum</h1>
+<h2>{{Museum.name}}</h2>
+<h3>{{Museum.location.name}}</h3>
+{{#each Museum.reviews}}
+  <h4>{{this.title}}</h4>
+  <p>{{this.evaluation}}</p>
+  <p>{{this.comment}}</p>
+  <p>{{this.date}}</p>
+{{/each}}
+<a href="/museum/{{Museum._id}}/review"><button>Do a Review</button></a>
