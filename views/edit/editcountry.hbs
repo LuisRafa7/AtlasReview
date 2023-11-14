@@ -4,16 +4,26 @@
   enctype="multipart/form-data"
 >
   <label for="name">Name:
-    <input type="text" id="name" name="name" />
+    <input type="text" id="name" name="name" value={{Country.name}} />
   </label>
-  <label for="image">
-    <input type="file" name="image" accept="image/png, image/jpg" />
+  <label for="image">Flag:
+    <input
+      type="file"
+      name="image"
+      accept="image/png, image/jpg"
+      value={{Country.image}}
+    />
   </label>
   <label for="location">Location:
-    <input type="text" id="name" name="location" />
+    <input type="text" id="name" name="location" value={{Country.location}} />
   </label>
-  <label for="population">Country:
-    <input type="text" id="population" name="population" />
+  <label for="population">Population:
+    <input
+      type="text"
+      id="population"
+      name="population"
+      value={{Country.population}}
+    />
   </label>
   <button type="submit">Edit City</button>
 </form>

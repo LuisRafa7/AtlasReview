@@ -2,6 +2,10 @@ const express = require("express");
 const router = express.Router();
 const bcryptjs = require("bcryptjs");
 const User = require("..//models/User.model");
+const Museum = require("../models/Museum.model");
+const Restaurant = require("../models/Restaurants.model");
+const Hotel = require("../models/Hotel.model.js");
+const Review = require("../models/Review.model");
 const { isLoggedIn, isLoggedOut } = require("../middlewares/route-guard.js");
 
 router.get("/signup", async (req, res, next) => {
@@ -56,7 +60,16 @@ router.post("/signup", async (req, res, next) => {
 router.post("/login", async (req, res, next) => {
   try {
     const { email, password } = req.body;
-    let foundUser = await User.findOne({ email: req.body.email });
+    let foundUser = await User.findOne({ email: req.body.email })
+      .populate("reviews")
+      .populate();
+    let foundActivity = [];
+    for (let i = 0; i < foundUser.reviews.length; i++) {
+      let review = await Review.findById(foundUser.reviews[i])
+        .populate("activity")
+        .populate("user");
+      foundActivity.push(review);
+    }
 
     if (!foundUser) {
       res.render("auth/login", { errorMessage: "Please try again" });
@@ -66,7 +79,7 @@ router.post("/login", async (req, res, next) => {
         foundUser.password
       );
       if (doesPasswordMatch) {
-        res.render("auth/profile", { user: foundUser });
+        res.render("auth/profile", { user: foundUser, review: foundActivity });
       } else {
         res.render("auth/login", { errorMessage: "Incorrect Details" });
       }

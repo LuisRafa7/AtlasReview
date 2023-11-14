@@ -1,10 +1,10 @@
-<h1>Museum</h1>
-<h2>{{Museum.name}}</h2>
-<h3>{{Museum.location.name}}</h3>
+<h1>Hotels</h1>
+<h2>{{Hotel.name}}</h2>
+<h3>{{Hotel.location.name}}</h3>
 {{#each review}}
   <h4>{{this.title}}</h4>
   <p>{{this.evaluation}}</p>
   <p>{{this.comment}}</p>
   <p>From {{this.user.username}} at {{this.date}}</p>
 {{/each}}
-<a href="/museum/{{Museum._id}}/review"><button>Do a Review</button></a>
+<a href="/hotel/{{Hotel._id}}/review"><button>Do a Review</button></a>

@@ -7,23 +7,42 @@ const userSchema = new Schema(
       type: String,
       trim: true,
       required: false,
-      unique: true
+      unique: true,
     },
     email: {
       type: String,
       required: true,
       unique: true,
       lowercase: true,
-      trim: true
+      trim: true,
     },
     password: {
       type: String,
-      required: true
-    }
+      required: true,
+    },
+    name: {
+      type: String,
+    },
+    surname: {
+      type: String,
+    },
+    country: {
+      type: String,
+    },
+    birthday: {
+      type: Date,
+    },
+    image: {
+      type: String,
+    },
+    Bio: {
+      type: String,
+    },
+    reviews: [{ type: Schema.Types.ObjectId, ref: "Review" }],
   },
   {
-    // this second object adds extra properties: `createdAt` and `updatedAt`    
-    timestamps: true
+    // this second object adds extra properties: `createdAt` and `updatedAt`
+    timestamps: true,
   }
 );
 

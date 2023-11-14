@@ -5,7 +5,7 @@ const City = require("../models/City.model");
 
 /* GET home page */
 router.get("/", async (req, res, next) => {
-  res.render("signup.hbs");
+  res.render("mainpage.hbs");
 });
 
 module.exports = router;

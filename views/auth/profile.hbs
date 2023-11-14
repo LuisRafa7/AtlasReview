@@ -1,4 +1,21 @@
 <h1>Profile Page</h1>
-<form id="logout-form" action="/auth/logout/" method="POST">
-  <button type="submit">Logout</button>
-</form>
+<div>
+  <img src={{user.image}} alt="" />
+  <h3>Name: {{user.name}} {{user.surname}}</h3>
+  <h3>Username: {{user.username}}</h3>
+  <h3>Email: {{user.email}}</h3>
+  <h3>Country: {{user.country}}</h3>
+  <h3>Birthday: {{user.birthday}}</h3>
+  <h3>Bio: {{user.bio}}</h3>
+  <a href=""><button>Edit your profile</button></a>
+</div>
+<div>
+  {{#each review}}
+    <h3>Title: {{this.title}}</h3>
+    <h3>Local: {{this.activity.name}}</h3>
+    <h3>Evaluation: {{this.evaluation}}</h3>
+    <h3>Opinion: {{this.comment}}</h3>
+    <p>From me at {{this.date}}</p>
+  {{/each}}
+</div>
+<a href="/country">Go to Website</a>

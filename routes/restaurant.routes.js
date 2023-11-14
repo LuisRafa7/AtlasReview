@@ -5,6 +5,7 @@ const City = require("../models/City.model");
 const Museum = require("../models/Museum.model");
 const Restaurant = require("../models/Restaurants.model");
 const Review = require("../models/Review.model");
+const User = require("../models/User.model");
 
 router.get("/:id", async (req, res, next) => {
   try {
@@ -12,7 +13,17 @@ router.get("/:id", async (req, res, next) => {
     const restaurant = await Restaurant.findById(id)
       .populate("location")
       .populate("reviews");
-    res.render("restaurant.hbs", { Restaurant: restaurant });
+    let foundReview = [];
+    for (let i = 0; i < restaurant.reviews.length; i++) {
+      let review = await Review.findById(restaurant.reviews[i])
+        .populate("activity")
+        .populate("user");
+      foundReview.push(review);
+    }
+    res.render("restaurant.hbs", {
+      Restaurant: restaurant,
+      review: foundReview,
+    });
   } catch (error) {
     console.log(error);
   }
@@ -34,6 +45,7 @@ router.post("/:id/review", async (req, res, next) => {
     const evaluation = req.body.evaluation;
     const comment = req.body.comment;
     const id = req.params.id;
+    const currentUser = req.session.currentUser;
     const museum = await Restaurant.findById(id);
     const newReview = await Review.create({
       title: title,
@@ -41,8 +53,12 @@ router.post("/:id/review", async (req, res, next) => {
       comment: comment,
       date: Date.now(),
       activity: museum._id,
+      user: currentUser._id,
     });
     const update = await Restaurant.findByIdAndUpdate(id, {
+      $push: { reviews: newReview._id },
+    });
+    const update1 = await User.findByIdAndUpdate(currentUser._id, {
       $push: { reviews: newReview._id },
     });
     res.redirect("/restaurant/" + id);

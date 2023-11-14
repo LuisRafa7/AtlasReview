@@ -1,10 +1,10 @@
 <h1>Restaurant</h1>
 <h2>{{Restaurant.name}}</h2>
 <h3>{{Restaurant.location.name}}</h3>
-{{#each Restaurant.reviews}}
+{{#each review}}
   <h4>{{this.title}}</h4>
   <p>{{this.evaluation}}</p>
   <p>{{this.comment}}</p>
-  <p>{{this.date}}</p>
+  <p>From {{this.user.username}} at {{this.date}}</p>
 {{/each}}
 <a href="/restaurant/{{Restaurant._id}}/review"><button>Do a Review</button></a>

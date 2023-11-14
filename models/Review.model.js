@@ -26,12 +26,11 @@ const reviewSchema = new Schema(
       required: true,
       trim: true,
     },
-    activity: [
-      { type: Schema.Types.ObjectId, ref: "Museum" },
-      { type: Schema.Types.ObjectId, ref: "Restaurant" },
-      //{ type: Schema.Types.ObjectId, ref: "Celeb" },
-    ],
-    user: [{ type: Schema.Types.ObjectId, ref: "User" }],
+    activity: { type: Schema.Types.ObjectId, ref: "Museum" } || {
+        type: Schema.Types.ObjectId,
+        ref: "Restaurant",
+      } || { type: Schema.Types.ObjectId, ref: "Hotel" },
+    user: { type: Schema.Types.ObjectId, ref: "User" },
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`
