@@ -1,0 +1,31 @@
+<h1>{{User.username}} Profile's</h1>
+<form
+  action="/auth/profile/{{User._id}}/editprofile"
+  method="POST"
+  enctype="multipart/form-data"
+>
+  <label for="name">Name:
+    <input type="text" id="name" name="name" value={{User.name}} />
+  </label>
+  <label for="surname">Surname:
+    <input type="text" id="surname" name="surname" value={{User.surname}} />
+  </label>
+  <label for="image">Profile Image:
+    <input
+      type="file"
+      name="image"
+      accept="image/png, image/jpg"
+      value={{User.image}}
+    />
+  </label>
+  <label for="email">Email:
+    <input type="email" id="email" name="email" value={{User.email}} />
+  </label>
+  <label for="birthday">Birthday:
+    <input type="date" id="bitrthday" name="birthday" value={{User.birthday}} />
+  </label>
+  <label for="bio">Bio:
+    <input type="text" id="bio" name="bio" value={{User.bio}} />
+  </label>
+  <button type="submit">Edit Profile</button>
+</form>

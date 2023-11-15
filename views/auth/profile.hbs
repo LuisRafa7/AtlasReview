@@ -1,4 +1,4 @@
-<h1>Profile Page</h1>
+<h1>{{User.username}} Profile's Page</h1>
 <div>
   <img src={{user.image}} alt="" />
   <h3>Name: {{user.name}} {{user.surname}}</h3>
@@ -7,7 +7,7 @@
   <h3>Country: {{user.country}}</h3>
   <h3>Birthday: {{user.birthday}}</h3>
   <h3>Bio: {{user.bio}}</h3>
-  <a href=""><button>Edit your profile</button></a>
+  <a href="/auth/profile/{{user._id}}/editprofile"><button>Edit your profile</button></a>
 </div>
 <div>
   {{#each review}}
@@ -16,6 +16,9 @@
     <h3>Evaluation: {{this.evaluation}}</h3>
     <h3>Opinion: {{this.comment}}</h3>
     <p>From me at {{this.date}}</p>
+    <a href="/review/{{this._id}}/editreview"><button>Edit Review</button></a>
+    <form action="/review/{{this._id}}/delete" method="POST">
+      <button type="submit">Delete Review</button></form>
   {{/each}}
 </div>
 <a href="/country">Go to Website</a>

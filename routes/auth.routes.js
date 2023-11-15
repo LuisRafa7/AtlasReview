@@ -6,6 +6,7 @@ const Museum = require("../models/Museum.model");
 const Restaurant = require("../models/Restaurants.model");
 const Hotel = require("../models/Hotel.model.js");
 const Review = require("../models/Review.model");
+const uploader = require("../middlewares/cloudinary.config.js");
 const { isLoggedIn, isLoggedOut } = require("../middlewares/route-guard.js");
 
 router.get("/signup", async (req, res, next) => {
@@ -26,14 +27,20 @@ router.get("/login", async (req, res, next) => {
 
 router.get("/profile", async (req, res, next) => {
   try {
-    res.render("auth/profile");
+    const currentUser = req.session.currentUser;
+    const idUser = currentUser._id;
+    const currentUser1 = await User.findById(idUser);
+    let foundActivity = [];
+    for (let i = 0; i < currentUser1.reviews.length; i++) {
+      let review = await Review.findById(currentUser1.reviews[i])
+        .populate("activity")
+        .populate("user");
+      foundActivity.push(review);
+    }
+    res.render("auth/profile", { user: currentUser1, review: foundActivity });
   } catch (error) {
     console.log(error);
   }
-});
-
-router.get("/profile", isLoggedIn, (req, res) => {
-  res.render("auth/profile", { userInSession: req.session.currentUser });
 });
 
 router.get("/signup", isLoggedOut, (req, res) => res.render("auth/signup"));
@@ -104,5 +111,33 @@ router.post("/logout/", async (req, res, next) => {
     console.log(err);
   }
 });
+
+router.get("/profile/:id/editprofile", async (req, res, next) => {
+  try {
+    const id = req.params.id;
+    const findUser = await User.findById(id);
+    res.render("edit/editprofile", { User: findUser });
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+router.post(
+  "/profile/:id/editprofile",
+  uploader.single("image"),
+  async (req, res, next) => {
+    try {
+      const id = req.params.id;
+      const data = req.body;
+      const userUpdate = await User.findByIdAndUpdate(id, {
+        ...data,
+        image: req.file.path,
+      });
+      res.redirect("/auth/profile/");
+    } catch (error) {
+      console.log(error);
+    }
+  }
+);
 
 module.exports = router;

@@ -35,7 +35,7 @@ router.post("/:id/addmuseum", async (req, res, next) => {
   try {
     const id = req.params.id;
     const data = req.body;
-    const addMusem = await Museum.create(data);
+    const addMusem = await Museum.create({ ...data, location: id });
     const update = await City.findByIdAndUpdate(id, {
       $push: { museum: addMusem._id },
     });
@@ -59,7 +59,7 @@ router.post("/:id/addrestaurant", async (req, res, next) => {
   try {
     const id = req.params.id;
     const data = req.body;
-    const addRestaurant = await Restaurant.create(data);
+    const addRestaurant = await Restaurant.create({ ...data, location: id });
     const update = await City.findByIdAndUpdate(id, {
       $push: { restaurants: addRestaurant._id },
     });
@@ -83,7 +83,7 @@ router.post("/:id/addhotel", async (req, res, next) => {
   try {
     const id = req.params.id;
     const data = req.body;
-    const addHotel = await Hotel.create(data);
+    const addHotel = await Hotel.create({ ...data, location: id });
     const update = await City.findByIdAndUpdate(id, {
       $push: { hotels: addHotel._id },
     });

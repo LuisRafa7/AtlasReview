@@ -1,0 +1,19 @@
+<form action="/review/{{Review._id}}/editreview" method="POST">
+  <label for="title">Title:
+    <input type="text" id="title" name="title" value={{Review.title}} />
+  </label>
+  <label for="">Evaluation:
+    <input
+      type="range"
+      id="evaluation"
+      name="evaluation"
+      min="1"
+      max="5"
+      value={{Review.evaluation}}
+    />
+  </label>
+  <label for="comment">Comment:
+    <input type="text" id="comment" name="comment" value={{Review.comment}} />
+  </label>
+  <button type="submit">Edit review</button>
+</form>

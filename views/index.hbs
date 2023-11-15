@@ -1,8 +1,9 @@
-<h1>Countries</h1>
+<h1>Countries</h1>>
 {{#each Countries}}
   <img src={{this.image}} alt="" />
   <h3>{{this.name}}</h3>
-  <a href="/country/{{this._id}}/details"><button>See {{this.name}}</button></a>
+  <a href="/country/{{this._id}}/details"><button>See
+      {{this.name}}</button></a>
   <a href="/country/{{this._id}}/editcountry"><button>Edit Country</button></a>
 {{/each}}
 <a href="/country/addcountry"><button>Add Country</button></a>

@@ -16,7 +16,7 @@ const countrySchema = new Schema(
     population: {
       type: Number,
     },
-    flag: {
+    image: {
       type: String,
     },
     cities: [{ type: Schema.Types.ObjectId, ref: "City" }],
