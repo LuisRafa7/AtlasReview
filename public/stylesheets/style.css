@@ -17,10 +17,6 @@ body img {
 
 }
 
-a {
-  color: #1ba2d8;
-}
-
 h1 {
   color: 15px;
 }
@@ -80,8 +76,16 @@ div.scroll-container img {
   margin: 300px auto auto auto;
 
 }
-.logo-image {
-  width: 550px;
-  height: 160px;
+
+.logo-header{
+  text-decoration: none;
+  font-size: 60px;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+
+.logo-header h1{
+  background: -webkit-linear-gradient(#fcfcfc 20%, #489dde, #437cc2, #3e5ca6, #3a3c8bgit);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
