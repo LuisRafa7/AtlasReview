@@ -144,6 +144,12 @@ text-decoration: none;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
+#cities-activites{
+color: #fcfcfc;
+font-weight: bold;
+font-size: 65px;
+}
+
 .cities-name{
   color: #437cc2;
   text-shadow: 1px 1px 2px #3a3c8b, 0 0 1em #489dde, 0 0 0.2em #fcfcfc;
