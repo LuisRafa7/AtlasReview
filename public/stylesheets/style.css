@@ -103,6 +103,14 @@ div.scroll-container img {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+#cities {
+  font-size: 60px;
+  background: -webkit-linear-gradient(#fcfcfc, #489dde 10%, #3e5ca6, #3a3c8b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 #contries {
   font-size: 60px;
   background: -webkit-linear-gradient(#fcfcfc, #489dde, #3e5ca6 20%, #3a3c8b);
@@ -111,14 +119,23 @@ div.scroll-container img {
   border-radius: 3px;
   width: 300px;
   height: 275px;
+  display: block;
   margin: 30px auto auto auto;
 }
 #contries h3 {
+  display: block;
   margin: 0px auto 100px auto;
   padding: 0;
   width: 60%;
   background-position: center;
   height: 60%;
+}
+
+.title {
+  font-size: 25px;
+  color: #fcfcfc;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }
 
 .countries-name {
@@ -127,6 +144,12 @@ div.scroll-container img {
   font-size: 35px;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
+}
+
+#cities-activites {
+  color: #fcfcfc;
+  font-weight: bold;
+  font-size: 65px;
 }
 
 .cities-name {
@@ -167,12 +190,8 @@ button:hover {
 }
 
 .media-scroller {
-  display: flex;
+  display: grid;
   gap: var(--size-3);
-  flex-direction: row;
-  width: 30%;
-}
-
-.media-element img {
-  height: auto;
+  grid-auto-flow: column;
+  grid-auto-columns: 25%;
 }
