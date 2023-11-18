@@ -103,7 +103,6 @@ div.scroll-container img {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-
 #contries {
   font-size: 60px;
   background: -webkit-linear-gradient(#fcfcfc, #489dde, #3e5ca6 20%, #3a3c8b);
@@ -112,11 +111,9 @@ div.scroll-container img {
   border-radius: 3px;
   width: 300px;
   height: 275px;
-  display: block;
   margin: 30px auto auto auto;
 }
 #contries h3 {
-  display: block;
   margin: 0px auto 100px auto;
   padding: 0;
   width: 60%;
@@ -170,8 +167,12 @@ button:hover {
 }
 
 .media-scroller {
-  display: grid;
+  display: flex;
   gap: var(--size-3);
-  grid-auto-flow: column;
-  grid-auto-columns: 25%;
+  flex-direction: row;
+  width: 30%;
+}
+
+.media-element img {
+  height: auto;
 }
