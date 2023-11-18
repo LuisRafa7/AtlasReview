@@ -1,17 +1,15 @@
 body {
-   text-align: center;
-   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-   background: linear-gradient(#fcfcfc,#489dde,#437cc2,#3e5ca6,#3a3c8b);
+  text-align: center;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background: linear-gradient(#fcfcfc, #489dde, #437cc2, #3e5ca6, #3a3c8b);
 }
 body img {
-  
-  
-    display: block;
-    margin: 0px auto 100px auto ;
-    padding: 0;
-    width: 60%;
-    background-position: center;
-    height: 60%;
+  display: block;
+  margin: 0px auto 100px auto;
+  padding: 0;
+  width: 60%;
+  background-position: center;
+  height: 60%;
 }
 
 h1 {
@@ -29,80 +27,84 @@ div.scroll-container img {
   padding: 10px;
 }
 
-#loginbutton{
-  color:#3e5ca6;
+#loginbutton {
+  color: #3e5ca6;
   text-shadow: #fcfcfc 1px 0 10px;
   border-radius: 3px;
-    width: 300px;
-    height: 275px;
-    display: block;
-    margin: 30px auto auto auto;
+  width: 300px;
+  height: 275px;
+  display: block;
+  margin: 30px auto auto auto;
 }
 
-.color-form{
+.color-form {
   color: #fcfcfc;
   font-weight: bold;
 }
 
-#singupbutton{
-  color:#3e5ca6;
+#singupbutton {
+  color: #3e5ca6;
   text-shadow: #fcfcfc 1px 0 10px;
   border-radius: 3px;
-    width: 300px;
-    height: 275px;
-    display: block;
-    margin: 30px auto auto auto;
-
+  width: 300px;
+  height: 275px;
+  display: block;
+  margin: 30px auto auto auto;
 }
-#profilebutton{
-  color:#3e5ca6;
+#profilebutton {
+  color: #3e5ca6;
   font-size: 60px;
   text-shadow: #fcfcfc 1px 0 10px;
   border-radius: 3px;
-    width: 300px;
-    height: 275px;
-    display: block;
-    margin: 30px auto auto auto;
+  width: 300px;
+  height: 275px;
+  display: block;
+  margin: 30px auto auto auto;
 }
 
-.profile-first{
+.profile-first {
   font-size: 25px;
   color: #fcfcfc;
 }
 
-.link-pro{
-text-decoration: none;
+.link-pro {
+  text-decoration: none;
 }
 
-#logout-form{
+#logout-form {
   color: #3e5ca6;
   border-radius: 3px;
-    width: 300px;
-    height: 275px;
-    display: block;
-    margin: 30px auto auto auto;
-
+  width: 300px;
+  height: 275px;
+  display: block;
+  margin: 30px auto auto auto;
 }
-#mainpage{
+#mainpage {
   text-align: center;
   padding: 0;
   margin: 300px auto auto auto;
-
 }
 
-.logo-header{
+.logo-header {
   text-decoration: none;
   font-size: 60px;
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }
 
-.logo-header h1{
-  background: -webkit-linear-gradient(#fcfcfc 20%, #489dde, #437cc2, #3e5ca6, #3a3c8b);
+.logo-header h1 {
+  background: -webkit-linear-gradient(
+    #fcfcfc 20%,
+    #489dde,
+    #437cc2,
+    #3e5ca6,
+    #3a3c8b
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-#cities{
+#cities {
   font-size: 60px;
   background: -webkit-linear-gradient(#fcfcfc, #489dde 10%, #3e5ca6, #3a3c8b);
   -webkit-background-clip: text;
@@ -114,25 +116,23 @@ text-decoration: none;
     margin: 30px auto auto auto;
 }
 
-#countries{
+#contries {
   font-size: 60px;
   background: -webkit-linear-gradient(#fcfcfc, #98bad4, #0948e6 20%, #0509f2);
   .webkit, background clip: text;
   -webkit-text-fill-color: transparent;
   border-radius: 3px;
-    width: 300px;
-    height: 275px;
-    display: block;
-    margin: 30px auto auto auto;
-
-}
-
-#countries h3{
+  width: 300px;
+  height: 275px;
   display: block;
-    margin: 0px auto 100px auto ;
-    padding: 0;
-    width: 60%;
-    background-position: center;
-    height: 60%;
+  margin: 30px auto auto auto;
+}
+#contries h3 {
+  display: block;
+  margin: 0px auto 100px auto;
+  padding: 0;
+  width: 60%;
+  background-position: center;
+  height: 60%;
 }
 
