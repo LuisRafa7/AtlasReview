@@ -124,6 +124,22 @@ div.scroll-container img {
   height: 60%;
 }
 
+.countries-name {
+  color: #437cc2;
+  text-shadow: 1px 1px 2px #3a3c8b, 0 0 1em #489dde, 0 0 0.2em #fcfcfc;
+  font-size: 35px;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
+.cities-name {
+  color: #437cc2;
+  text-shadow: 1px 1px 2px #3a3c8b, 0 0 1em #489dde, 0 0 0.2em #fcfcfc;
+  font-size: 35px;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
 button {
   background-color: #66a9db;
   border-radius: 100px;

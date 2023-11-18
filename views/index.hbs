@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <h1 id="contries">Countries</h1>>
 <div class="media-scroller">
   <div class="media-element">
@@ -11,4 +12,15 @@
     {{/each}}
   </div>
 </div>
+=======
+<h1 id = "countries">Countries</h1>
+{{#each Countries}}
+<h3 class="countries-name">{{this.name}}</h3>
+  <img src={{this.image}} alt="" />
+  
+  <a href="/country/{{this._id}}/details"><button>See
+      {{this.name}}</button></a>
+  <a href="/country/{{this._id}}/editcountry"><button>Edit Country</button></a>
+{{/each}}
+>>>>>>> b6bd5a6b071f352519cbec9cb8447e1104456a81
 <a href="/country/addcountry"><button>Add Country</button></a>
