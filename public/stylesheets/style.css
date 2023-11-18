@@ -37,7 +37,11 @@ div.scroll-container img {
     height: 275px;
     display: block;
     margin: 30px auto auto auto;
+}
 
+.color-form{
+  color: #fcfcfc;
+  font-weight: bold;
 }
 
 #singupbutton{
