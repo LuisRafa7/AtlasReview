@@ -136,3 +136,26 @@ div.scroll-container img {
   height: 60%;
 }
 
+button {
+  background-color: #66a9db;
+  border-radius: 100px;
+  box-shadow: #3a3c8b 0 -25px 18px -14px inset,#3e5ca6 0 2px 4px,#437cc2 0 4px 8px,#489dde 0 8px 16px,#94b3ca 0 16px 32px;
+  color: #3e5ca6;
+  cursor: pointer;
+  display: inline-block;
+  font-family: 'Trebuchet MS', CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
+  font-weight: bold;
+  padding: 10px 40px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 250ms;
+  border: 0;
+  font-size: 16px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+button:hover {
+  box-shadow: #3a3c8b 0 -25px 18px -14px inset,#3e5ca6 0 1px 2px,#437cc2 0 2px 4px,#437cc2 0 4px 8px,#489dde 0 8px 16px,#fcfcfc 0 16px 32px;
+}
