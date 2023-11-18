@@ -12,9 +12,6 @@ body img {
     width: 60%;
     background-position: center;
     height: 60%;
-    
-    
-
 }
 
 h1 {
@@ -32,18 +29,24 @@ div.scroll-container img {
   padding: 10px;
 }
 
-
 #loginbutton{
-  color:rgb(201, 131, 20) ;
+  color:#3e5ca6;
+  text-shadow: #fcfcfc 1px 0 10px;
   border-radius: 3px;
     width: 300px;
     height: 275px;
     display: block;
     margin: 30px auto auto auto;
-
 }
+
+.color-form{
+  color: #fcfcfc;
+  font-weight: bold;
+}
+
 #singupbutton{
-  color:rgb(201, 131, 20)  ;
+  color:#3e5ca6;
+  text-shadow: #fcfcfc 1px 0 10px;
   border-radius: 3px;
     width: 300px;
     height: 275px;
@@ -52,17 +55,27 @@ div.scroll-container img {
 
 }
 #profilebutton{
-  color:rgb(201, 131, 20) ;
+  color:#3e5ca6;
+  font-size: 60px;
+  text-shadow: #fcfcfc 1px 0 10px;
   border-radius: 3px;
     width: 300px;
     height: 275px;
     display: block;
     margin: 30px auto auto auto;
-  
-
 }
+
+.profile-first{
+  font-size: 25px;
+  color: #fcfcfc;
+}
+
+.link-pro{
+text-decoration: none;
+}
+
 #logout-form{
-  color:rgb(201, 131, 20)  ;
+  color: #3e5ca6;
   border-radius: 3px;
     width: 300px;
     height: 275px;
@@ -88,8 +101,24 @@ div.scroll-container img {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-#contries{
-  color:rgb(201, 131, 20) ;
+
+#cities{
+  font-size: 60px;
+  background: -webkit-linear-gradient(#fcfcfc, #489dde 10%, #3e5ca6, #3a3c8b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  border-radius: 3px;
+    width: 300px;
+    height: 275px;
+    display: block;
+    margin: 30px auto auto auto;
+}
+
+#countries{
+  font-size: 60px;
+  background: -webkit-linear-gradient(#fcfcfc, #489dde, #3e5ca6 20%, #3a3c8b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   border-radius: 3px;
     width: 300px;
     height: 275px;
@@ -97,7 +126,8 @@ div.scroll-container img {
     margin: 30px auto auto auto;
 
 }
-#contries h3{
+
+#countries h3{
   display: block;
     margin: 0px auto 100px auto ;
     padding: 0;
@@ -105,3 +135,4 @@ div.scroll-container img {
     background-position: center;
     height: 60%;
 }
+
