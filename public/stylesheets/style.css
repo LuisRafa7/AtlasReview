@@ -88,6 +88,23 @@ div.scroll-container img {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+#contries{
+  color:rgb(201, 131, 20) ;
+  border-radius: 3px;
+    width: 300px;
+    height: 275px;
+    display: block;
+    margin: 30px auto auto auto;
+
+}
+#contries h3{
+  display: block;
+    margin: 0px auto 100px auto ;
+    padding: 0;
+    width: 60%;
+    background-position: center;
+    height: 60%;
+}
 
 
 button {
