@@ -1,7 +1,7 @@
 body {
    text-align: center;
    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-   background-color:rgba(181, 152, 152, 0.616)
+   background: linear-gradient(#fcfcfc,#489dde,#437cc2,#3e5ca6,#3a3c8b);
 }
 body img {
   
@@ -84,3 +84,4 @@ div.scroll-container img {
   width: 550px;
   height: 160px;
 }
+
