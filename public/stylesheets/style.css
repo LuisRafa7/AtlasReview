@@ -52,15 +52,25 @@ div.scroll-container img {
 
 }
 #profilebutton{
-  color:rgb(201, 131, 20) ;
+  color:#3e5ca6;
+  font-size: 60px;
+  text-shadow: #fcfcfc 1px 0 10px;
   border-radius: 3px;
     width: 300px;
     height: 275px;
     display: block;
     margin: 30px auto auto auto;
-  
-
 }
+
+.profile-first{
+  font-size: 25px;
+  color: #fcfcfc;
+}
+
+.link-pro{
+text-decoration: none;
+}
+
 #logout-form{
   color:rgb(201, 131, 20)  ;
   border-radius: 3px;
