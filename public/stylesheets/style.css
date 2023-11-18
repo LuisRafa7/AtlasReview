@@ -121,6 +121,7 @@ text-decoration: none;
     margin: 30px auto auto auto;
 
 }
+
 #countries h3{
   display: block;
     margin: 0px auto 100px auto ;
@@ -128,6 +129,12 @@ text-decoration: none;
     width: 60%;
     background-position: center;
     height: 60%;
+}
+
+.title{
+  font-size: 25px;
+  color: #fcfcfc;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .countries-name{
