@@ -190,8 +190,23 @@ button:hover {
 }
 
 .media-scroller {
-  display: grid;
-  gap: var(--size-3);
-  grid-auto-flow: column;
-  grid-auto-columns: 25%;
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  overflow-x: auto;
+  margin: auto;
+}
+
+.media-element {
+  display: flex;
+  flex-direction: row;
+}
+
+.media-element img {
+  height: auto;
+}
+
+.element-column {
+  display: flex;
+  flex-direction: column;
 }

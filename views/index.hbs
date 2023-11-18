@@ -2,12 +2,14 @@
 <div class="media-scroller">
   <div class="media-element">
     {{#each Countries}}
-      <h3>{{this.name}}</h3>
-      <img src={{this.image}} alt="" />
+      <div class="element-column">
+        <h3>{{this.name}}</h3>
+        <img src={{this.image}} alt="" />
 
-      <a href="/country/{{this._id}}/details"><button>See
-          {{this.name}}</button></a>
-      <a href="/country/{{this._id}}/editcountry"><button>Edit Country</button></a>
+        <a href="/country/{{this._id}}/details"><button>See
+            {{this.name}}</button></a>
+        <a href="/country/{{this._id}}/editcountry"><button>Edit Country</button></a>
+      </div>
     {{/each}}
   </div>
 </div>
