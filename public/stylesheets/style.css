@@ -84,7 +84,7 @@ div.scroll-container img {
 }
 
 .logo-header h1{
-  background: -webkit-linear-gradient(#fcfcfc 20%, #489dde, #437cc2, #3e5ca6, #3a3c8bgit);
+  background: -webkit-linear-gradient(#fcfcfc 20%, #489dde, #437cc2, #3e5ca6, #3a3c8b);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
