@@ -119,7 +119,7 @@ div.scroll-container img {
 #contries {
   font-size: 60px;
   background: -webkit-linear-gradient(#fcfcfc, #98bad4, #0948e6 20%, #0509f2);
-  .webkit, background clip: text;
+  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   border-radius: 3px;
   width: 300px;
