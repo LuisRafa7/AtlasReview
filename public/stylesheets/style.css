@@ -102,6 +102,13 @@ text-decoration: none;
   -webkit-text-fill-color: transparent;
 }
 
+#cities{
+  font-size: 60px;
+  background: -webkit-linear-gradient(#fcfcfc, #489dde 10%, #3e5ca6, #3a3c8b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 #countries{
   font-size: 60px;
   background: -webkit-linear-gradient(#fcfcfc, #489dde, #3e5ca6 20%, #3a3c8b);
@@ -124,6 +131,13 @@ text-decoration: none;
 }
 
 .countries-name{
+  color: #437cc2;
+  text-shadow: 1px 1px 2px #3a3c8b, 0 0 1em #489dde, 0 0 0.2em #fcfcfc;
+  font-size: 35px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.cities-name{
   color: #437cc2;
   text-shadow: 1px 1px 2px #3a3c8b, 0 0 1em #489dde, 0 0 0.2em #fcfcfc;
   font-size: 35px;
