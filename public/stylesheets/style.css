@@ -22,7 +22,7 @@ h1 {
 }
 
 div.scroll-container {
-  background-color: #333;
+  background-color: #dc1717;
   overflow: auto;
   white-space: nowrap;
   padding: 10px;
@@ -105,4 +105,3 @@ div.scroll-container img {
     background-position: center;
     height: 60%;
 }
-
