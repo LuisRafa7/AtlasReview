@@ -102,7 +102,7 @@ text-decoration: none;
   -webkit-text-fill-color: transparent;
 }
 
-#contries{
+#countries{
   font-size: 60px;
   background: -webkit-linear-gradient(#fcfcfc, #489dde, #3e5ca6 20%, #3a3c8b);
   -webkit-background-clip: text;
@@ -114,7 +114,7 @@ text-decoration: none;
     margin: 30px auto auto auto;
 
 }
-#contries h3{
+#countries h3{
   display: block;
     margin: 0px auto 100px auto ;
     padding: 0;
