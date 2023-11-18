@@ -116,7 +116,14 @@ div.scroll-container img {
     margin: 30px auto auto auto;
 }
 
-#contries {
+.cities-name{
+  color: #437cc2;
+  text-shadow: 1px 1px 2px #3a3c8b, 0 0 1em #489dde, 0 0 0.2em #fcfcfc;
+  font-size: 35px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+#countries {
   font-size: 60px;
   background: -webkit-linear-gradient(#fcfcfc, #98bad4, #0948e6 20%, #0509f2);
   -webkit-background-clip: text;
@@ -127,13 +134,20 @@ div.scroll-container img {
   display: block;
   margin: 30px auto auto auto;
 }
-#contries h3 {
+
+#countries h3 {
   display: block;
   margin: 0px auto 100px auto;
   padding: 0;
   width: 60%;
   background-position: center;
   height: 60%;
+}
+
+#cities-activites{
+  color: #fcfcfc;
+  font-weight: bold;
+  font-size: 65px;
 }
 
 button {

@@ -1,11 +1,6 @@
-<<<<<<< HEAD
-
-
-
-
-<h1 id = "contries">Countries</h1>
+<h1 id = "countries">Countries</h1>
 {{#each Countries}}
-<h3>{{this.name}}</h3>
+<h3 class="cities-name">{{this.name}}</h3>
   <img src={{this.image}} alt="" />
   
   <a href="/country/{{this._id}}/details"><button>See
@@ -15,9 +10,9 @@
 <a href="/country/addcountry"><button>Add Country</button></a>
 
 
-=======
-<h1 id="contries">Countries</h1>
-<div class="media-scroller">
+
+{{!-- <h1 id="countries">Countries</h1>
+ <div class="media-scroller">
   <div class="media-element">
     {{#each Countries}}
       <div class="element-column">
@@ -30,5 +25,4 @@
       </div>
     {{/each}}
   </div>
-</div>
->>>>>>> 6dd3ef4f1a4c1786272c33325511a8046d6f8918
+</div> --}}
