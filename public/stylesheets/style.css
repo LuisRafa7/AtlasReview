@@ -88,6 +88,7 @@ div.scroll-container img {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
 #contries{
   color:rgb(201, 131, 20) ;
   border-radius: 3px;
@@ -106,15 +107,15 @@ div.scroll-container img {
     height: 60%;
 }
 
-
 button {
   background-color: #66a9db;
   border-radius: 100px;
-  box-shadow: #3a3c8b 0 -25px 18px -14px inset,#3e5ca6 0 1px 2px,#437cc2 0 2px 4px,#489dde 0 4px 8px,#437cc2 0 8px 16px,#fcfcfc 0 16px 32px;
-  color: #3a3c8b;
+  box-shadow: #3a3c8b 0 -25px 18px -14px inset,#3e5ca6 0 2px 4px,#437cc2 0 4px 8px,#489dde 0 8px 16px,#94b3ca 0 16px 32px;
+  color: #3e5ca6;
   cursor: pointer;
   display: inline-block;
-  font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
+  font-family: 'Trebuchet MS', CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
+  font-weight: bold;
   padding: 10px 40px;
   text-align: center;
   text-decoration: none;
