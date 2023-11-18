@@ -1,10 +1,24 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+   text-align: center;
+   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+   background-color:rgba(181, 152, 152, 0.616)
+}
+body img {
+  
+  
+    display: block;
+    margin: 0px auto 100px auto ;
+    padding: 0;
+    width: 60%;
+    background-position: center;
+    height: 10em;
+    
+    
+
 }
 
 a {
-  color: #00b7ff;
+  color: #1ba2d8;
 }
 
 h1 {
@@ -20,4 +34,49 @@ div.scroll-container {
 
 div.scroll-container img {
   padding: 10px;
+}
+
+
+#loginbutton{
+  color:rgb(201, 131, 20) ;
+  border-radius: 3px;
+    width: 300px;
+    height: 275px;
+    display: block;
+    margin: 30px auto auto auto;
+
+}
+#singupbutton{
+  color:rgb(201, 131, 20)  ;
+  border-radius: 3px;
+    width: 300px;
+    height: 275px;
+    display: block;
+    margin: 30px auto auto auto;
+
+}
+#profilebutton{
+  color:rgb(201, 131, 20) ;
+  border-radius: 3px;
+    width: 300px;
+    height: 275px;
+    display: block;
+    margin: 30px auto auto auto;
+  
+
+}
+#logout-form{
+  color:rgb(201, 131, 20)  ;
+  border-radius: 3px;
+    width: 300px;
+    height: 275px;
+    display: block;
+    margin: 30px auto auto auto;
+
+}
+#mainpage{
+  text-align: center;
+  padding: 0;
+  margin: 300px auto auto auto;
+
 }
