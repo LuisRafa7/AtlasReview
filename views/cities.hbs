@@ -1,9 +1,15 @@
 <h1 id="cities">{{Country.name}}</h1>
-{{#each Country.cities}}
-  <img src={{this.image}} alt="" />
-  <h3 class="cities-name">{{this.name}}</h3>
-  <a href="/city/{{this._id}}"><button>See {{this.name}}</button></a>
-  <a href="/city/{{this._id}}/editcity"><button>Edit city</button></a>
-{{/each}}
+<div class="media-scroller">
+  <div class="media-element">
+    {{#each Country.cities}}
+      <div class="element-column">
+        <img src={{this.image}} alt="" />
+        <h3 class="cities-name">{{this.name}}</h3>
+        <a href="/city/{{this._id}}"><button>See {{this.name}}</button></a>
+        <a href="/city/{{this._id}}/editcity"><button>Edit city</button></a>
+      </div>
+    {{/each}}
+  </div>
+</div>
 <a href="/country/{{Country._id}}/addcity"><button>Add City</button></a>
 <a href="/country/"><button>Go Back</button></a>
