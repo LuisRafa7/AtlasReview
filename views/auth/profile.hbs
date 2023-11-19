@@ -9,7 +9,7 @@
   <h3>Bio: {{user.bio}}</h3>
   <a href="/auth/profile/{{user._id}}/editprofile"><button>Edit your profile</button></a>
 </div>
-<div>
+<div class="profile-first">
   {{#each review}}
     <h3>Title: {{this.title}}</h3>
     <h3>Local: {{this.activity.name}}</h3>
@@ -22,3 +22,4 @@
   {{/each}}
 </div>
 <a href="/country" class="link-pro"><button>Go to Website</button></a>
+
