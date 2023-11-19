@@ -2,7 +2,7 @@
 <div class="media-scroller">
   <div class="media-element">
     {{#each Country.cities}}
-      <div class="element-column">
+      <div id="cities-sec" class="element-column">
         <img src={{this.image}} alt="" />
         <h3 class="cities-name">{{this.name}}</h3>
         <a href="/city/{{this._id}}"><button>See {{this.name}}</button></a>

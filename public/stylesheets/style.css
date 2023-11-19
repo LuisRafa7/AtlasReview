@@ -3,6 +3,7 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background: linear-gradient(#fcfcfc, #489dde, #437cc2, #3e5ca6, #3a3c8b);
 }
+
 body img {
   display: block;
   margin: 0px auto 100px auto;
@@ -17,7 +18,7 @@ h1 {
 }
 
 div.scroll-container {
-  background-color: #dc1717;
+  background-color: #437cc2;
   overflow: auto;
   white-space: nowrap;
   padding: 10px;
@@ -184,6 +185,7 @@ button:hover {
   display: flex;
   flex-direction: column;
   width: 90%;
+  height: 90%;
   overflow-x: auto;
   margin: auto;
 }
@@ -191,13 +193,45 @@ button:hover {
 .media-element {
   display: flex;
   flex-direction: row;
+  color: #fcfcfc;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  width: 80%;
 }
 
 .media-element img {
-  height: auto;
+  height: 100px;
+  width: 150px;
 }
 
 .element-column {
   display: flex;
   flex-direction: column;
+}
+
+.media-button {
+  padding-bottom: 5px;
+  padding-top: 5px;
+  font-size: 10px;
+}
+
+#my-buttons button{
+  margin: 20px;
+}
+
+#cities-sec {
+  padding-left: 50px;
+  padding-right: 30px;
+}
+
+#cities-sec button {
+  margin: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 10px;
+}
+
+#cities-sec img {
+  width: 250px;
+  height: 200px;
 }
