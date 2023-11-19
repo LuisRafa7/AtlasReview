@@ -235,3 +235,7 @@ button:hover {
   width: 250px;
   height: 200px;
 }
+
+#the-main {
+  height: 60%;
+}
