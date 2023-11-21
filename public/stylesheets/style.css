@@ -156,7 +156,7 @@ div.scroll-container img {
 
 #countries {
   font-size: 60px;
-  background: -webkit-linear-gradient(#fcfcfc, #437cc2, #3e5ca6 20%, #3a3c8b);
+  background: -webkit-linear-gradient(#fcfcfc, #437cc2, #3e5ca6 20%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   border-radius: 3px;
