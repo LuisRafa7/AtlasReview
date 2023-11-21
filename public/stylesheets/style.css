@@ -76,15 +76,11 @@ div.scroll-container img {
 #logout-form {
   color: #3e5ca6;
   border-radius: 3px;
-  width: 300px;
-  height: 275px;
   display: block;
-  margin: 30px auto auto auto;
 }
 #mainpage {
   text-align: center;
   padding: 0;
-  margin: 300px auto auto auto;
 }
 
 .logo-header {
@@ -104,6 +100,7 @@ div.scroll-container img {
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  margin-bottom: 0;
 }
 
 #cities {
@@ -113,7 +110,7 @@ div.scroll-container img {
   -webkit-text-fill-color: transparent;
   border-radius: 3px;
   width: 300px;
-  height: 275px;
+  height: 10%;
   display: block;
   margin: 30px auto auto auto;
 }
@@ -133,7 +130,7 @@ div.scroll-container img {
   -webkit-text-fill-color: transparent;
   border-radius: 3px;
   width: 300px;
-  height: 275px;
+  height: 10%;
   display: block;
   margin: 30px auto auto auto;
 }
@@ -186,7 +183,6 @@ button:hover {
   display: flex;
   flex-direction: column;
   width: 90%;
-  height: 90%;
   overflow-x: auto;
   margin: auto;
 }
@@ -216,7 +212,7 @@ button:hover {
   font-size: 10px;
 }
 
-#my-buttons button{
+#my-buttons button {
   margin: 20px;
 }
 
@@ -238,9 +234,15 @@ button:hover {
 }
 
 #the-main {
-  height: 60%;
+  height: 20%;
 }
 
 .title {
   color: #fcfcfc;
+}
+
+.layout-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
