@@ -1,25 +1,35 @@
-<h1 id ="profilebutton">{{User.username}} Profile's Page</h1>
-<div class="profile-first">
-  <img src={{user.image}} alt="" />
-  <h3>Name: {{user.name}} {{user.surname}}</h3>
-  <h3>Username: {{user.username}}</h3>
-  <h3>Email: {{user.email}}</h3>
-  <h3>Country: {{user.country}}</h3>
-  <h3>Birthday: {{user.birthday}}</h3>
-  <h3>Bio: {{user.bio}}</h3>
-  <a href="/auth/profile/{{user._id}}/editprofile"><button>Edit your profile</button></a>
-</div>
-<div class="profile-first">
-  {{#each review}}
-    <h3>Title: {{this.title}}</h3>
-    <h3>Local: {{this.activity.name}}</h3>
-    <h3>Evaluation: {{this.evaluation}}</h3>
-    <h3>Opinion: {{this.comment}}</h3>
-    <p>From me at {{this.date}}</p>
-    <a href="/review/{{this._id}}/editreview"><button>Edit Review</button></a>
-    <form action="/review/{{this._id}}/delete" method="POST">
-      <button type="submit">Delete Review</button></form>
-  {{/each}}
+<h1 id="profilebutton">{{user.username}} Profile's Page</h1>
+<div class="profile-main">
+  <div class="profile-first">
+    <div>
+      <img src={{user.image}} alt="" />
+    </div>
+    <div>
+      <p>Name: {{user.name}} {{user.surname}}</p>
+      <p>Username: {{user.username}}</p>
+      <p>Email: {{user.email}}</p>
+      <p>Country: {{user.country}}</p>
+      <p>Birthday: {{user.birthday}}</p>
+      <p>Bio: {{user.bio}}</p>
+      <a href="/auth/profile/{{user._id}}/editprofile"><button>Edit your profile</button></a>
+    </div>
+  </div>
+  <div class="profile-second">
+    {{#each review}}
+      <h4>{{this.title}}</h4>
+      <h5>{{this.activity.name}}</h5>
+      <p>{{this.evaluation}}
+        &#9734;
+      </p>
+      <p>Opinion: {{this.comment}}</p>
+      <p>From me at {{this.date}}</p>
+      <div class="button-review">
+        <a href="/review/{{this._id}}/editreview"><button>Edit Review</button></a>
+        <form action="/review/{{this._id}}/delete" method="POST">
+          <button type="submit">Delete Review</button></form>
+      </div>
+      <hr />
+    {{/each}}
+  </div>
 </div>
 <a href="/country" class="link-pro"><button>Go to Website</button></a>
-
