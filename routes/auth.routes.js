@@ -88,13 +88,14 @@ router.post("/login", async (req, res, next) => {
         foundUser.password
       );
       if (doesPasswordMatch) {
-        res.render("auth/profile", { user: foundUser, review: foundActivity });
+        foundUser.password = "XXXX";
+        req.session.currentUser = foundUser;
+        res.redirect("/auth/profile");
       } else {
         res.render("auth/login", { errorMessage: "Incorrect Details" });
       }
     }
     console.log("SESSION =====> ", req.session);
-    req.session.currentUser = foundUser;
   } catch (error) {
     console.log(error);
   }
