@@ -1,33 +1,42 @@
-<h1 id="countries">Countries</h1>
-<div class="media-scroller">
-  <div class="media-element">
-    {{#each Countries}}
-      <div class="element-column">
-        <h3>{{this.name}}</h3>
-        <img src={{this.image}} alt="" />
-      <div id="my-buttons">
-        <a href="/country/{{this._id}}/details"><button class="media-button">See
-            {{this.name}}</button></a>
-        <a href="/country/{{this._id}}/editcountry"><button class="media-button">Edit Country</button></a>
-      </div>
-      </div>
-    {{/each}}
+{{#if Admin}}
+  <h1 id="countries">Countries</h1>
+  <div class="media-scroller">
+    <div class="media-element">
+      {{#each Countries}}
+        <div class="element-column">
+          <h3>{{this.name}}</h3>
+          <img src={{this.image}} alt="" />
+          <div id="my-buttons">
+            <a href="/country/{{this._id}}/details"><button
+                class="media-button"
+              >See
+                {{this.name}}</button></a>
+            <a href="/country/{{this._id}}/editcountry"><button
+                class="media-button"
+              >Edit Country</button></a>
+          </div>
+        </div>
+      {{/each}}
+    </div>
   </div>
-</div>
-<a href="/country/addcountry"><button class="media-button">Add Country</button></a>
-
-{{!-- <h1 id="countries">Countries</h1>
- <div class="media-scroller">
-  <div class="media-element">
-    {{#each Countries}}
-      <div class="element-column">
-        <h3>{{this.name}}</h3>
-        <img src={{this.image}} alt="" />
-
-        <a href="/country/{{this._id}}/details"><button>See
-            {{this.name}}</button></a>
-        <a href="/country/{{this._id}}/editcountry"><button>Edit Country</button></a>
-      </div>
-    {{/each}}
+  <a href="/country/addcountry"><button class="media-button">Add Country</button></a>
+{{/if}}
+{{#if User}}
+  <h1 id="countries">Countries</h1>
+  <div class="media-scroller">
+    <div class="media-element">
+      {{#each Countries}}
+        <div class="element-column">
+          <h3>{{this.name}}</h3>
+          <img src={{this.image}} alt="" />
+          <div id="my-buttons">
+            <a href="/country/{{this._id}}/details"><button
+                class="media-button"
+              >See
+                {{this.name}}</button></a>
+          </div>
+        </div>
+      {{/each}}
+    </div>
   </div>
-</div> --}}
+{{/if}}

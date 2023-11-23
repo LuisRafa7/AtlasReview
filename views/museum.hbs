@@ -1,13 +1,13 @@
 <h1 id="cities-activites">Museum</h1>
 <div class="title">
-<h2>{{Museum.name}}</h2>
-<h3>{{Museum.location.name}}</h3>
-{{#each review}}
-  <h4>{{this.title}}</h4>
-  <p>{{this.evaluation}}</p>
-  <p>{{this.comment}}</p>
-  <p>From {{this.user.username}} at {{this.date}}</p>
-{{/each}}
+  <h2>{{Museum.name}}</h2>
+  <h3>{{Museum.location.name}}</h3>
+  {{#each review}}
+    <h4>{{this.title}}</h4>
+    <p>{{this.evaluation}} &#9734;</p>
+    <p>{{this.comment}}</p>
+    <p>From {{this.user.username}} at {{this.date}}</p>
+  {{/each}}
 </div>
 <a href="/museum/{{Museum._id}}/review"><button>Do a Review</button></a>
 <a href="/city/{{Museum.location._id}}"><button>Go Back</button></a>

@@ -1,25 +1,31 @@
 <h1 id="cities">{{City.name}}</h1>
 <h2 class="cities-name">Museums</h2>
-{{#each City.museum}}
-  <img src="" alt="" />
-  <h3 class="title">{{this.name}}</h3>
-  <a href="/museum/{{this._id}}"><button>See the Museum</button></a>
-{{/each}}
-<a href="/city/{{City._id}}/addmuseum"><button>Add a Musuem</button></a>
+<div class="activities">
+  {{#each City.museum}}
+    <h3 class="title">{{this.name}}</h3>
+    <a href="/museum/{{this._id}}"><button>See the Museum</button></a>
+    <hr />
+  {{/each}}
+  <a href="/city/{{City._id}}/addmuseum"><button>Add a Musuem</button></a>
+</div>
 <br />
 <h2 class="cities-name">Restaurants</h2>
-{{#each City.restaurants}}
-  <img src="" alt="" />
-  <h3 class="title">{{this.name}}</h3>
-  <a href="/restaurant/{{this._id}}"><button>See the Restaurant</button></a>
-{{/each}}
-<a href="/city/{{City._id}}/addrestaurant"><button>Add a Restaurant</button></a>
+<div class="activities">
+  {{#each City.restaurants}}
+    <h3 class="title">{{this.name}}</h3>
+    <a href="/restaurant/{{this._id}}"><button>See the Restaurant</button></a>
+    <hr />
+  {{/each}}
+  <a href="/city/{{City._id}}/addrestaurant"><button>Add a Restaurant</button></a>
+</div>
 <h2 class="cities-name">Hotels</h2>
-{{#each City.hotels}}
-  <img src="" alt="" />
-  <h3 class="title">{{this.name}}</h3>
-  <a href="/hotel/{{this._id}}"><button>See the Hotel</button></a>
-{{/each}}
-<a href="/city/{{City._id}}/addhotel"><button>Add a Hotel</button></a>
+<div class="activities">
+  {{#each City.hotels}}
+    <h3 class="title">{{this.name}}</h3>
+    <a href="/hotel/{{this._id}}"><button>See the Hotel</button></a>
+    <hr />
+  {{/each}}
+  <a href="/city/{{City._id}}/addhotel"><button>Add a Hotel</button></a>
+</div>
 <br />
 <a href="/country/{{City.country._id}}/details"><button>Go Back</button></a>

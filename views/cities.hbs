@@ -1,15 +1,31 @@
-<h1 id="cities">{{Country.name}}</h1>
-<div class="media-scroller">
-  <div class="media-element">
-    {{#each Country.cities}}
-      <div id="cities-sec" class="element-column">
-        <h3 class="cities-name">{{this.name}}</h3>
-        <img src={{this.image}} alt="" />
-        <a href="/city/{{this._id}}"><button>See {{this.name}}</button></a>
-        <a href="/city/{{this._id}}/editcity"><button>Edit city</button></a>
-      </div>
-    {{/each}}
+{{#if Admin}}
+  <h1 id="cities">{{Country.name}}</h1>
+  <div class="media-scroller">
+    <div class="media-element">
+      {{#each Country.cities}}
+        <div id="cities-sec" class="element-column">
+          <h3 class="cities-name">{{this.name}}</h3>
+          <img src={{this.image}} alt="" />
+          <a href="/city/{{this._id}}"><button>See {{this.name}}</button></a>
+          <a href="/city/{{this._id}}/editcity"><button>Edit city</button></a>
+        </div>
+      {{/each}}
+    </div>
   </div>
-</div>
-<a href="/country/{{Country._id}}/addcity"><button>Add City</button></a>
-<a href="/country/"><button>Go Back</button></a>
+  <a href="/country/{{Country._id}}/addcity"><button>Add City</button></a>
+  <a href="/country/"><button>Go Back</button></a>
+{{else}}
+  <h1 id="cities">{{Country.name}}</h1>
+  <div class="media-scroller">
+    <div class="media-element">
+      {{#each Country.cities}}
+        <div id="cities-sec" class="element-column">
+          <h3 class="cities-name">{{this.name}}</h3>
+          <img src={{this.image}} alt="" />
+          <a href="/city/{{this._id}}"><button>See {{this.name}}</button></a>
+        </div>
+      {{/each}}
+    </div>
+  </div>
+  <a href="/country/"><button>Go Back</button></a>
+{{/if}}

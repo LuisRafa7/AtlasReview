@@ -6,8 +6,9 @@ const Museum = require("../models/Museum.model");
 const Restaurant = require("../models/Restaurants.model");
 const Hotel = require("../models/Hotel.model");
 const uploader = require("../middlewares/cloudinary.config");
+const { isLoggedIn, isLoggedOut } = require("../middlewares/route-guard.js");
 
-router.get("/:id", async (req, res, next) => {
+router.get("/:id", isLoggedIn, async (req, res, next) => {
   try {
     const id = req.params.id;
     const city = await City.findById(id)
@@ -21,7 +22,7 @@ router.get("/:id", async (req, res, next) => {
   }
 });
 
-router.get("/:id/addmuseum", async (req, res, next) => {
+router.get("/:id/addmuseum", isLoggedIn, async (req, res, next) => {
   try {
     const id = req.params.id;
     const city = await City.findById(id);
@@ -45,7 +46,7 @@ router.post("/:id/addmuseum", async (req, res, next) => {
   }
 });
 
-router.get("/:id/addrestaurant", async (req, res, next) => {
+router.get("/:id/addrestaurant", isLoggedIn, async (req, res, next) => {
   try {
     const id = req.params.id;
     const city = await City.findById(id);
@@ -69,7 +70,7 @@ router.post("/:id/addrestaurant", async (req, res, next) => {
   }
 });
 
-router.get("/:id/addhotel", async (req, res, next) => {
+router.get("/:id/addhotel", isLoggedIn, async (req, res, next) => {
   try {
     const id = req.params.id;
     const city = await City.findById(id);
@@ -93,7 +94,7 @@ router.post("/:id/addhotel", async (req, res, next) => {
   }
 });
 
-router.get("/:id/editcity", async (req, res, next) => {
+router.get("/:id/editcity", isLoggedIn, async (req, res, next) => {
   try {
     const id = req.params.id;
     const city = await City.findById(id).populate("country");
@@ -111,11 +112,19 @@ router.post(
       const id = req.params.id;
       const data = req.body;
       const city = await City.findById(id).populate("country");
-      const addCity = await City.findByIdAndUpdate(id, {
-        ...data,
-        country: city.country._id,
-        image: req.file.path,
-      });
+      if (!req.file) {
+        const addCity = await City.findByIdAndUpdate(id, {
+          ...data,
+          country: city.country._id,
+          image: city.image,
+        });
+      } else {
+        const addCity = await City.findByIdAndUpdate(id, {
+          ...data,
+          country: city.country._id,
+          image: req.file.path,
+        });
+      }
       res.redirect("/country/" + city.country._id + "/details");
     } catch (error) {
       console.log(error);

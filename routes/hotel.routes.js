@@ -7,8 +7,9 @@ const Restaurant = require("../models/Restaurants.model");
 const Review = require("../models/Review.model");
 const Hotel = require("../models/Hotel.model");
 const User = require("../models/User.model");
+const { isLoggedIn, isLoggedOut } = require("../middlewares/route-guard.js");
 
-router.get("/:id", async (req, res, next) => {
+router.get("/:id", isLoggedIn, async (req, res, next) => {
   try {
     const id = req.params.id;
     const hotel = await Hotel.findById(id)
@@ -27,7 +28,7 @@ router.get("/:id", async (req, res, next) => {
   }
 });
 
-router.get("/:id/review", async (req, res, next) => {
+router.get("/:id/review", isLoggedIn, async (req, res, next) => {
   try {
     const id = req.params.id;
     const hotel = await Hotel.findById(id);

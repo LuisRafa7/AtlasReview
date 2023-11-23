@@ -277,3 +277,10 @@ button:hover {
   flex-direction: row;
   justify-content: space-around;
 }
+
+.activities {
+  height: 25vh;
+  width: 50%;
+  overflow-y: auto;
+  margin: 0 auto 0 auto;
+}

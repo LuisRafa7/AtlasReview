@@ -7,8 +7,9 @@ const Restaurant = require("../models/Restaurants.model");
 const Review = require("../models/Review.model");
 const User = require("../models/User.model");
 const Hotel = require("../models/Hotel.model");
+const { isLoggedIn, isLoggedOut } = require("../middlewares/route-guard.js");
 
-router.get("/:id/editreview", async (req, res, next) => {
+router.get("/:id/editreview", isLoggedIn, async (req, res, next) => {
   try {
     const id = req.params.id;
     const review = await Review.findById(id).populate("activity");

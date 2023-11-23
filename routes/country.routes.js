@@ -3,13 +3,19 @@ const router = express.Router();
 const Country = require("..//models/Country.model");
 const City = require("../models/City.model");
 const uploader = require("../middlewares/cloudinary.config");
+const { isLoggedIn, isLoggedOut } = require("../middlewares/route-guard.js");
 
-router.get("/", async (req, res, next) => {
+router.get("/", isLoggedIn, async (req, res, next) => {
   const allCountries = await Country.find();
-  res.render("index", { Countries: allCountries });
+  const user = req.session.currentUser;
+  if (user.username === "admin") {
+    res.render("index", { Countries: allCountries, Admin: user });
+  } else {
+    res.render("index", { Countries: allCountries, User: user });
+  }
 });
 
-router.get("/addcountry", async (req, res, next) => {
+router.get("/addcountry", isLoggedIn, async (req, res, next) => {
   try {
     res.render("add/addcountry.hbs");
   } catch (error) {
@@ -20,14 +26,22 @@ router.get("/addcountry", async (req, res, next) => {
 router.post("/addcountry", uploader.single("image"), async (req, res, next) => {
   try {
     const data = req.body;
-    const addCity = await Country.create({ ...data, image: req.file.path });
+    if (!req.file) {
+      const addCity = await Country.create({
+        ...data,
+        image:
+          "https://res.cloudinary.com/dnr0j82bs/image/upload/v1700156447/ywicr3exjnl3gv8xkjuq.jpg",
+      });
+    } else {
+      const addCity = await Country.create({ ...data, image: req.file.path });
+    }
     res.redirect("/country/");
   } catch (error) {
     console.log(error);
   }
 });
 
-router.get("/:id/editcountry", async (req, res, next) => {
+router.get("/:id/editcountry", isLoggedIn, async (req, res, next) => {
   try {
     const id = req.params.id;
     const country = await Country.findById(id);
@@ -43,11 +57,20 @@ router.post(
   async (req, res, next) => {
     try {
       const id = req.params.id;
+      const country = await Country.findById(id);
       const data = req.body;
-      const addCity = await Country.findByIdAndUpdate(id, {
-        data,
-        image: req.file.path,
-      });
+      if (!req.file) {
+        const addCity = await Country.findByIdAndUpdate(id, {
+          ...data,
+          image: country.image,
+        });
+      } else {
+        const addCity = await Country.findByIdAndUpdate(id, {
+          ...data,
+          image: req.file.path,
+        });
+      }
+
       res.redirect("/country/");
     } catch (error) {
       console.log(error);
@@ -55,7 +78,7 @@ router.post(
   }
 );
 
-router.get("/:id/addcity", async (req, res, next) => {
+router.get("/:id/addcity", isLoggedIn, async (req, res, next) => {
   try {
     const id = req.params.id;
     const country = await Country.findById(id);
@@ -74,11 +97,20 @@ router.post(
       const id = req.params.id;
       const country = await Country.findById(id);
       const data = req.body;
-      const addCity = await City.create({
-        ...data,
-        country: country._id,
-        image: req.file.path,
-      });
+      if (!req.file) {
+        const addCity = await City.create({
+          ...data,
+          country: country._id,
+          image:
+            "https://res.cloudinary.com/dnr0j82bs/image/upload/v1700156447/ywicr3exjnl3gv8xkjuq.jpg",
+        });
+      } else {
+        const addCity = await City.create({
+          ...data,
+          country: country._id,
+          image: req.file.path,
+        });
+      }
       const update = await Country.findByIdAndUpdate(id, {
         $push: { cities: addCity._id },
       });
@@ -89,11 +121,16 @@ router.post(
   }
 );
 
-router.get("/:id/details", async (req, res, next) => {
+router.get("/:id/details", isLoggedIn, async (req, res, next) => {
   try {
     let id = req.params.id;
     const country = await Country.findById(id).populate("cities");
-    res.render("cities", { Country: country });
+    const user = req.session.currentUser;
+    if (user.username === "admin") {
+      res.render("cities", { Country: country, Admin: user });
+    } else {
+      res.render("cities", { Country: country, User: user });
+    }
   } catch (error) {
     console.log(error);
   }

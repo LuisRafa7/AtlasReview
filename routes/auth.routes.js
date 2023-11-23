@@ -9,23 +9,25 @@ const Review = require("../models/Review.model");
 const uploader = require("../middlewares/cloudinary.config.js");
 const { isLoggedIn, isLoggedOut } = require("../middlewares/route-guard.js");
 
-router.get("/signup", async (req, res, next) => {
+router.get("/signup", isLoggedOut, async (req, res, next) => {
   try {
-    res.render("auth/signup.hbs");
+    const noUser = { name: "noUser", name1: "adasd" };
+    res.render("auth/signup.hbs", { noUser });
   } catch (error) {
     console.log(error);
   }
 });
 
-router.get("/login", async (req, res, next) => {
+router.get("/login", isLoggedOut, async (req, res, next) => {
   try {
-    res.render("auth/login");
+    const noUser = { name: "noUser", name1: "adasd" };
+    res.render("auth/login", { noUser });
   } catch (error) {
     console.log(error);
   }
 });
 
-router.get("/profile", async (req, res, next) => {
+router.get("/profile", isLoggedIn, async (req, res, next) => {
   try {
     const currentUser = req.session.currentUser;
     const idUser = currentUser._id;
@@ -43,8 +45,6 @@ router.get("/profile", async (req, res, next) => {
   }
 });
 
-router.get("/signup", isLoggedOut, (req, res) => res.render("auth/signup"));
-
 router.post("/signup", async (req, res, next) => {
   try {
     let response = await User.findOne({ username: req.body.username });
@@ -54,6 +54,8 @@ router.post("/signup", async (req, res, next) => {
       const newUser = await User.create({
         ...req.body,
         password: hashedPassword,
+        image:
+          "https://res.cloudinary.com/dnr0j82bs/image/upload/v1700156447/ywicr3exjnl3gv8xkjuq.jpg",
       });
       res.redirect("/auth/login");
     } else {
@@ -92,7 +94,6 @@ router.post("/login", async (req, res, next) => {
       }
     }
     req.session.currentUser = foundUser;
-    console.log("SESSION =====> ", req.session);
   } catch (error) {
     console.log(error);
   }
@@ -104,7 +105,7 @@ router.post("/logout/", async (req, res, next) => {
       if (err) {
         next(err);
       } else {
-        res.redirect("/auth/login");
+        res.redirect("/");
       }
     });
   } catch (err) {
@@ -112,7 +113,7 @@ router.post("/logout/", async (req, res, next) => {
   }
 });
 
-router.get("/profile/:id/editprofile", async (req, res, next) => {
+router.get("/profile/:id/editprofile", isLoggedIn, async (req, res, next) => {
   try {
     const id = req.params.id;
     const findUser = await User.findById(id);
@@ -129,10 +130,18 @@ router.post(
     try {
       const id = req.params.id;
       const data = req.body;
-      const userUpdate = await User.findByIdAndUpdate(id, {
-        ...data,
-        image: req.file.path,
-      });
+      if (!req.file) {
+        const addCity = await User.findByIdAndUpdate(id, {
+          ...data,
+          image:
+            "https://res.cloudinary.com/dnr0j82bs/image/upload/v1700156447/ywicr3exjnl3gv8xkjuq.jpg",
+        });
+      } else {
+        const userUpdate = await User.findByIdAndUpdate(id, {
+          ...data,
+          image: req.file.path,
+        });
+      }
       res.redirect("/auth/profile/");
     } catch (error) {
       console.log(error);
