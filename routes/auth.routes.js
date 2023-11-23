@@ -93,6 +93,7 @@ router.post("/login", async (req, res, next) => {
         res.render("auth/login", { errorMessage: "Incorrect Details" });
       }
     }
+    console.log("SESSION =====> ", req.session);
     req.session.currentUser = foundUser;
   } catch (error) {
     console.log(error);
